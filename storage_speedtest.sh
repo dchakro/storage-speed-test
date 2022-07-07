@@ -1,5 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Created by Alexander aka BioDranik <me@alex.bio> in Minsk, Belarus
+# Modifications by Deepankar Chakroborty (https://github.com/dchakro)
 
 set -eu
 
@@ -10,8 +11,12 @@ fi
 
 SD_DIR=$1
 FILENAME="$SD_DIR/file_speed_test.deleteme"
-SIZE=1000 # in MB
-
+read -p "Enter Filesize (Megabytes): " SIZE
+if [[ -n ${SIZE//[0-9]/} ]]; then
+    echo "Improper input! File size set to 512MB."
+    SIZE=512 # in MB
+fi
+# 
 if [[ "$OSTYPE" == "darwin"* ]]; then
   WRITE_FILE_COMMAND="mkfile ${SIZE}m $FILENAME"
   CLEAR_CACHE_COMMAND="purge"
