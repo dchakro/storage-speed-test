@@ -1,11 +1,12 @@
-# Test read/write speed of SD/microSD/USB/SSD/HDD.
-Bash script for Mac OS X and Linux to test SD/microSD card or SSD/HDD/USB drive read and write speed.
+# Mac - Disk IO speed test
+
+Bash script for Mac OS X test SSD/HDD/SDHC or network storage's read and write speeds of devices on or connected to your mac.
 
 Usage:
 ```
-$ bash sd_card_speed_test.sh <path to directory which should be tested>
+$ bash storage_speedtest.sh /Volumes/Data/
 ```
-IE: `/Volumes/Untitled` and not `/dev/disk2`
+i.e., use: `/Volumes/Data` and not `/dev/disk2`
 
 
-Note: administrator password is necessary for sudo to reset file system cache. Read speed result is incorrect without cache reset.
+Note: administrator password is necessary for sudo to reset file system cache (using sync & purge command). This is because the Read speed results are incorrect when performed without a cache reset.
